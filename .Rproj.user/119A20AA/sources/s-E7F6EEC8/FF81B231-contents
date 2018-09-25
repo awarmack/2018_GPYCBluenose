@@ -1,0 +1,172 @@
+---
+title: "2018 GPYC Blue Nose"
+output: github_document
+---
+
+##Background
+The Bayview Yacht Club hosts an annual Long Distance race around Lake St. Clair in Michigan. This is an analysis of the performance of the Yacht Zubenelgenubi in that race. 
+
+##Source Data
+The data from the race is collected from three on-board instruments: 
+- Raymarine Wind Guage
+- Raymarine Boat Speed
+- Garmin GPS Plotter
+
+These devices transmit NMEA sentances which is multiplexed and then broadcast over wifi using a [MiniPlex-3](http://www.shipmodul.com/en/miniplex-3.html). 
+
+The data is then read into [Expedition](http://www.expeditionmarine.com/about.htm) sailing software and logged as a csv file. 
+
+## Load Data
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+
+#Read the Raw Data
+expdat <- read.csv("../raw_data/exp_log.csv", stringsAsFactors = FALSE)
+
+#Change the Time
+expdat$time <- as.POSIXct((expdat$Utc) * (60*60*24), origin = "1899-12-30", tz = "GMT")
+attributes(expdat$time )$tzone <- "America/Detroit"
+
+
+#Remove any All NA Columns
+#Find columns where all is NA
+allna <- which(apply(expdat, 2, function(x) all(is.na(x))))   
+
+#remove those columns
+expdat <- expdat %>% select(-allna)
+
+#Select only needed columns
+expdat <- expdat %>% select(time, Bsp, Awa, Aws, Twa, Tws, Twd, Lat, Lon, Hdg, Cog, Sog)
+
+#change names to lowercase for easier handling
+names(expdat) <- tolower(names(expdat))
+
+#Remove any rows where we don't have all data
+expdat <- na.omit(expdat)
+
+summary(expdat)
+
+
+```
+
+#### Clean up the Expdition Data
+```{r}
+#Remove huge outliers
+expdat <- expdat[expdat$aws < 30, ]   #we definitely didn't encounter anything over 20 kts
+
+```
+
+
+
+##Path Sailed
+
+
+## Wind Direction & Speed
+```{r}
+source("../src/optimalPerformanceFunctions.R")
+
+ggplot(expdat) + geom_path(aes(x=time, y=tws)) + ggtitle("True Wind Speed")
+
+ggplot(expdat) + geom_path(aes(x=time, y=fromNorth(twd))) + ggtitle("True Wind Direction (Deg from North)")
+```
+
+
+##Calculate Polar Boatspeed
+```{r}
+library(akima)
+library(zoo)
+
+load("../raw_data/polarmodel.rda")
+
+expdat$polar_bsp_target <- getOptV(btw = expdat$twa, vtw = expdat$tws, pol.model)
+expdat$polar_rollmean <- rollmean(expdat$polar_bsp_target, k = 30, na.pad = TRUE)
+
+ggplot(expdat) + 
+  geom_path(aes(x=time, y=polar_bsp_target), color="gray")+
+  geom_path(aes(x=time, y=polar_rollmean))
+  #geom_path(aes(x=time, y=bsp)) 
+  
+
+```
+
+## Distribution of Performance
+```{r}
+
+expdat$off_polar <- expdat$polar_bsp_target - expdat$bsp
+
+expdat$polar_bsp_perc <-  expdat$bsp / expdat$polar_bsp_target * 100
+
+ggplot(expdat) + 
+  geom_histogram(aes(x=polar_bsp_perc), binwidth=3)+
+  scale_x_continuous(limits=c(0,200)) + 
+  geom_vline(xintercept=100) +
+  ggtitle ("% Performance to Polar Target")
+
+```
+
+### Distributino by Wind Speed
+```{r}
+expdat$tws_range <- cut(expdat$tws, breaks = c(0, 2, 4, 6,  8, 10, 12))
+
+ggplot(expdat) + 
+  geom_histogram(aes(x=polar_bsp_perc), binwidth=3)+
+  scale_x_continuous(limits=c(0,200)) + 
+  geom_vline(xintercept=100)+
+  facet_grid(tws_range ~ .)
+  
+  
+```
+
+### Distribution by Wind Angle
+```{r}
+expdat$twa_range <- cut(expdat$twa, breaks = seq(-180, 180, by=30))
+
+ggplot(expdat) + 
+  geom_histogram(aes(x=polar_bsp_perc), binwidth=3)+
+  scale_x_continuous(limits=c(0,200)) + 
+  geom_vline(xintercept=100)+
+  facet_grid(twa_range ~ .)
+  
+  
+```
+
+## Optimal VMC
+```{r}
+library(geosphere)
+marks <- data.frame(mk.lon=-82.68310, mk.lat=42.42992)
+
+
+#bearing to mark
+expdat$btm <- expdat$btm <- bearingRhumb(expdat[, c("lon", "lat")], marks)
+
+#Calculate Optimal VMC
+optimalcourse <- mapply(FUN = optvmc, expdat$btm, expdat$twd, expdat$tws, MoreArgs = list(pol.model), SIMPLIFY = FALSE)
+
+optimalcourse <- do.call(bind_rows, optimalcourse)
+  
+expdat <- bind_cols(expdat, optimalcourse[, 4:9])
+
+```
+
+##Actual VMC
+```{r}
+expdat$act_vmc <- getVMC(btm = expdat$btm, cog = expdat$cog, bsp = expdat$bsp)
+```
+
+## dHDGMark
+```{r}
+
+expdat$d_hdg_mark <- fromNorth(expdat$btm) - fromNorth(expdat$hdg)
+```
+
+
+
+
+
+## Save Data
+```{r}
+save(marks, file= "../2018_BYCLongDistance/mark.rda")
+save(expdat, file =  "../2018_BYCLongDistance/expdat.rda")
+```
+

@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1537671377460.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "512A0DF",
+    "lastKnownWriteTime" : 7598242680761483270,
+    "last_content_update" : 1537671377460,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "41B023A",
+        "caption" : "expdat",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=expdat&cache_key=41B023A",
+        "displayedObservations" : "5934",
+        "environment" : "",
+        "object" : "expdat",
+        "preview" : "0",
+        "totalObservations" : "5934",
+        "variables" : "27"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

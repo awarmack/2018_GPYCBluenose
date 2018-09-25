@@ -1,0 +1,7 @@
+"0","expdat$off_polar <- expdat$polar_bsp_target - expdat$bsp"
+"0","expdat$polar_bsp_perc <-  expdat$bsp / expdat$polar_bsp_target * 100"
+"0","ggplot(expdat) + "
+"0","  geom_histogram(aes(x=polar_bsp_perc), binwidth=3)+"
+"0","  scale_x_continuous(limits=c(0,200)) + "
+"0","  geom_vline(xintercept=100) +"
+"0","  ggtitle (""% Performance to Polar Target"")"

@@ -1,0 +1,17 @@
+"0","library(akima)"
+"0","library(zoo)"
+"2","
+Attaching package: ‘zoo’
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+"
+"0","load(""../raw_data/polarmodel.rda"")"
+"0","expdat$polar_bsp_target <- getOptV(btw = expdat$twa, vtw = expdat$tws, pol.model)"
+"0","expdat$polar_rollmean <- rollmean(expdat$polar_bsp_target, k = 30, na.pad = TRUE)"
+"0","ggplot(expdat) + "
+"0","  geom_path(aes(x=time, y=polar_bsp_target), color=""gray"")+"
+"0","  geom_path(aes(x=time, y=polar_rollmean))"

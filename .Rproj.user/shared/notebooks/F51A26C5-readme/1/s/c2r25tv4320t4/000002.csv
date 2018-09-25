@@ -1,0 +1,1 @@
+"0","expdat$act_vmc <- getVMC(btm = expdat$btm, cog = expdat$cog, bsp = expdat$bsp)"

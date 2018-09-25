@@ -1,0 +1,12 @@
+name: 2018_BYCLongDistance
+title: 2018_BYCLongDistance
+username:
+account: awarmack
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 450560
+bundleId: 1600279
+url: https://awarmack.shinyapps.io/2018_BYCLongDistance/
+when: 1537672537.64567
+asMultiple: FALSE
+asStatic: FALSE

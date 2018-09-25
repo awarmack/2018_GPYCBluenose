@@ -1,0 +1,6 @@
+"0","expdat$twa_range <- cut(expdat$twa, breaks = seq(-180, 180, by=30))"
+"0","ggplot(expdat) + "
+"0","  geom_histogram(aes(x=polar_bsp_perc), binwidth=3)+"
+"0","  scale_x_continuous(limits=c(0,200)) + "
+"0","  geom_vline(xintercept=100)+"
+"0","  facet_grid(twa_range ~ .)"

@@ -1,0 +1,2 @@
+"0","#Remove huge outliers"
+"0","expdat <- expdat[expdat$aws < 30, ]   #we definitely didn't encounter anything over 20 kts"

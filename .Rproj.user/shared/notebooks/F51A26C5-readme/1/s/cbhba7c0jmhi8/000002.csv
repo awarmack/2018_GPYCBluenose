@@ -1,0 +1,1 @@
+"0","expdat$d_hdg_mark <- fromNorth(expdat$btm) - fromNorth(expdat$hdg)"
