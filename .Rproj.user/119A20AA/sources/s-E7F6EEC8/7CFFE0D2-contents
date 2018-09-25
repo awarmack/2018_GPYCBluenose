@@ -36,7 +36,7 @@ fromNorth <- function(bearing){
 
 expdat$twd <- fromNorth(expdat$twd)
 
-expdat <- expdat[expdat$time > as.POSIXct("2018-09-22 15:00:00"), ]
+expdat <- expdat[expdat$time > as.POSIXct("2018-09-22 14:50:00"), ]
 
 #========
 
