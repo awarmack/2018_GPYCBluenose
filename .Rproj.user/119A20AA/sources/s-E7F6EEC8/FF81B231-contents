@@ -166,7 +166,8 @@ ggplot(expdat, )+geom_path(aes(x=time, y=d_hdg_mark))
 ```
 
 ## Creating a Leaflet Map
-```{r}
+```{r eval=FALSE, include=FALSE}
+library(leaflet)
 
 markIcon <- makeIcon(iconUrl = "../shinyapp/triangle.svg", 
                      iconWidth = 10, 

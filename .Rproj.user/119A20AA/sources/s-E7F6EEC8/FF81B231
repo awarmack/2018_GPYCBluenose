@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1682549924",
+    "hash" : "2122094334",
     "id" : "FF81B231",
-    "lastKnownWriteTime" : 1537872893,
-    "last_content_update" : 1537872893671,
+    "lastKnownWriteTime" : 1537873156,
+    "last_content_update" : 1537873156581,
     "path" : "~/Dropbox/projects/sailing/2018_GPYCBlueNose/docs/readme.Rmd",
     "project_path" : "docs/readme.Rmd",
     "properties" : {
-        "cursorPosition" : "181,24",
-        "scrollLine" : "169"
+        "cursorPosition" : "176,0",
+        "scrollLine" : "166"
     },
     "relative_order" : 1,
     "source_on_save" : false,
