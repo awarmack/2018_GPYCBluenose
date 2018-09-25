@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "3020161054",
     "id" : "7CFFE0D2",
-    "lastKnownWriteTime" : 1537672503,
-    "last_content_update" : 1537672503939,
+    "lastKnownWriteTime" : 1537871820,
+    "last_content_update" : 1537871820842,
     "path" : "~/Dropbox/projects/sailing/2018_GPYCBlueNose/shinyapp/app.R",
     "project_path" : "shinyapp/app.R",
     "properties" : {
-        "cursorPosition" : "30,27",
-        "scrollLine" : "11"
+        "cursorPosition" : "110,36",
+        "scrollLine" : "105"
     },
     "relative_order" : 2,
     "source_on_save" : false,

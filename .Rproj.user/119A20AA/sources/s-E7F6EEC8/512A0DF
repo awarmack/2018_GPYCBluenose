@@ -12,15 +12,15 @@
     "path" : null,
     "project_path" : null,
     "properties" : {
-        "cacheKey" : "41B023A",
+        "cacheKey" : "FA76E83",
         "caption" : "expdat",
-        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=expdat&cache_key=41B023A",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=expdat&cache_key=FA76E83",
         "displayedObservations" : "5934",
         "environment" : "",
         "object" : "expdat",
         "preview" : "0",
         "totalObservations" : "5934",
-        "variables" : "27"
+        "variables" : "26"
     },
     "relative_order" : 3,
     "source_on_save" : false,

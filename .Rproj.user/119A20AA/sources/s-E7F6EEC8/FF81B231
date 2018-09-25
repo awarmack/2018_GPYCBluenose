@@ -7,13 +7,13 @@
     "folds" : "",
     "hash" : "0",
     "id" : "FF81B231",
-    "lastKnownWriteTime" : 1537670752,
-    "last_content_update" : 1537671278286,
+    "lastKnownWriteTime" : 1537871785,
+    "last_content_update" : 1537871785215,
     "path" : "~/Dropbox/projects/sailing/2018_GPYCBlueNose/docs/readme.Rmd",
     "project_path" : "docs/readme.Rmd",
     "properties" : {
-        "cursorPosition" : "20,35",
-        "scrollLine" : "16"
+        "cursorPosition" : "181,15",
+        "scrollLine" : "166"
     },
     "relative_order" : 1,
     "source_on_save" : false,

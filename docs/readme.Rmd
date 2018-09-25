@@ -134,7 +134,7 @@ ggplot(expdat) +
 ## Optimal VMC
 ```{r}
 library(geosphere)
-marks <- data.frame(mk.lon=-82.68310, mk.lat=42.42992)
+marks <- data.frame(mk.lon=-82-(48.1/60), mk.lat=42+(29.7/60))
 
 
 #bearing to mark
@@ -161,12 +161,34 @@ expdat$d_hdg_mark <- fromNorth(expdat$btm) - fromNorth(expdat$hdg)
 ```
 
 
+```{r}
+ggplot(expdat, )+geom_path(aes(x=time, y=d_hdg_mark))
+```
 
+## Creating a Leaflet Map
+```{r}
+
+markIcon <- makeIcon(iconUrl = "../shinyapp/triangle.svg", 
+                     iconWidth = 10, 
+                     iconHeight = 10, 
+                     iconAnchorX = 5, 
+                     iconAnchorY = 5)
+
+    m <- leaflet() %>%  addTiles()
+    
+    m <- m %>% addPolylines(data=expdat, lng=~lon, lat=~lat, 
+                             weight=2, opacity=100)
+    
+    m <- m %>% addMarkers(data=marks, lng=~mk.lon, lat=~mk.lat, icon = markIcon)
+    
+    m
+
+```
 
 
 ## Save Data
 ```{r}
-save(marks, file= "../2018_BYCLongDistance/mark.rda")
-save(expdat, file =  "../2018_BYCLongDistance/expdat.rda")
+save(marks, file= "../shinyapp/mark.rda")
+save(expdat, file =  "../shinyapp/expdat.rda")
 ```
 

@@ -5,8 +5,8 @@ account: awarmack
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 463972
-bundleId: 1600268
+bundleId: 1604079
 url: https://awarmack.shinyapps.io/2018_GPYCBluenose/
-when: 1537671893.13533
+when: 1537871092.52814
 asMultiple: FALSE
 asStatic: FALSE

@@ -1,5 +1,5 @@
 "0","library(geosphere)"
-"0","marks <- data.frame(mk.lon=-82.68310, mk.lat=42.42992)"
+"0","marks <- data.frame(mk.lon=-82-(48.1/60), mk.lat=42+(29.7/60))"
 "0","#bearing to mark"
 "0","expdat$btm <- expdat$btm <- bearingRhumb(expdat[, c(""lon"", ""lat"")], marks)"
 "0","#Calculate Optimal VMC"

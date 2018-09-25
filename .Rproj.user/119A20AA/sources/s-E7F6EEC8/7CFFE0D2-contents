@@ -15,17 +15,37 @@ library(tidyverse)
 library(htmltools)
 
 load("expdat.rda")
+load("mark.rda")
 
 attr(expdat$time, "tzone") <- "GMT"
 
 expdat$polar_bsp_perc[is.infinite(expdat$polar_bsp_perc)] <- NA
 
+normbear <- function(x){
+  #converts back to a normal bearing
+  x %% 360
+}
 
-expdat <- expdat[expdat$time > as.POSIXct("2018-09-22 15:00:00"), ]
+fromNorth <- function(bearing){
+  bearing <- normbear(bearing)  #first convert to a normal bearing
+  
+  fromNorth <- ifelse(bearing > 180, bearing-360, bearing)
+  fromNorth <- ifelse(fromNorth < -180, 360+fromNorth, fromNorth)
+  return(fromNorth)
+}
+
+expdat$twd <- fromNorth(expdat$twd)
+
+#expdat <- expdat[expdat$time > as.POSIXct("2018-09-22 15:00:00"), ]
+
+#========
+
+
+
 
 #plot variables
 plotchoices <- c("bsp", "awa", "aws", "twa", "tws", "twd", "cog", "sog", "polar_bsp_target", "polar_bsp_perc", 
-                 "opt_twa", "opt_bear", "degoffmark", "opt_bsp", "opt_vmc", "act_vmc", "d_hdg_mark")
+                 "btm", "opt_twa", "opt_bear", "degoffmark", "opt_bsp", "opt_vmc", "act_vmc", "d_hdg_mark")
 
 minTime <- min(expdat$time)
 maxTime <- max(expdat$time)
@@ -34,7 +54,7 @@ maxTime <- max(expdat$time)
 ui <- fluidPage(
   fluidRow(
    column(6, 
-          titlePanel("2018 Long Distance Race"), 
+          titlePanel("2018 GPYC Blue Nose"), 
           sliderInput("endtime", "Visible Time",
                       min=minTime,
                       max=maxTime, 
@@ -65,15 +85,13 @@ ui <- fluidPage(
           fluidRow(
             column(12, 
                    plotOutput("xvy", width="auto",height=200))
-          )          
-          # fluidRow(
-          #    column(12, 
-          #           plotOutput("hist1", width="auto",height=150))
-          # ),
-          # fluidRow(
-          #   column(12, 
-          #          plotOutput("hist2", width="auto",height=150))
-          # )
+          ),          
+          fluidRow(
+             column(6,
+                    plotOutput("hist1", width="auto",height=150)),
+             column(6,
+                    plotOutput("hist2", width="auto",height=150))
+          )
    )
   )
   
@@ -90,6 +108,12 @@ server <- function(input, output, session) {
   
   output$mymap <- renderLeaflet({
     
+    markIcon <- makeIcon(iconUrl = "triangle.svg", 
+                         iconWidth = 10, 
+                         iconHeight = 10, 
+                         iconAnchorX = 5, 
+                         iconAnchorY = 5)
+    
     m <- leaflet() %>%  addTiles()
     #m <- m %>% addPolylines(data=df, lng=~lon, lat=~lat)
     #m <- m %>% addPolylines(data=tuna, lng=~lon, lat=~lat, color="red")
@@ -101,8 +125,8 @@ server <- function(input, output, session) {
     #   domain = quantile(expdat$bsp), c(.01,99))
     # 
     m <- m %>% addPolylines(data=expdat, lng=~lon, lat=~lat, 
-                             weight=2, opacity=100) 
-    #m <- m %>% addCircleMarkers(data=marks, lng=~mk.lon, lat=~mk.lat, color="Orange", radius = 3)
+                             weight=2, opacity=100)
+    m <- m %>% addMarkers(data=marks, lng=~mk.lon, lat=~mk.lat, icon = markIcon)
     
     
   })
@@ -114,9 +138,10 @@ server <- function(input, output, session) {
     colorrange <- quantile(expdat[, input$colorvar], c(.01, .99), na.rm=TRUE)
     plotrange <- quantile(expdat[, input$plotvar1], c(.01, .99), na.rm=TRUE)
     
-    ggplot(expdat) + geom_path(aes_string(x="time", y=input$plotvar1, color=input$colorvar))+
+    ggplot(expdat, aes_string(x="time", y=input$plotvar1, color=input$colorvar)) + geom_path()+
       scale_color_viridis(limits=colorrange) + 
-      scale_y_continuous(limits=plotrange)
+      scale_y_continuous(limits=plotrange) + 
+      geom_smooth(method="loess", span=0.1)
     
   })
   
@@ -127,9 +152,10 @@ server <- function(input, output, session) {
     colorrange <- quantile(expdat[, input$colorvar], c(.01, .99), na.rm=TRUE)
     plotrange <- quantile(expdat[, input$plotvar2], c(.01, .99), na.rm=TRUE)
     
-    ggplot(expdat) + geom_path(aes_string(x="time", y=input$plotvar2, color=input$colorvar))+
+    ggplot(expdat, aes_string(x="time", y=input$plotvar2, color=input$colorvar)) + geom_path()+
       scale_color_viridis(limits=colorrange) + 
-      scale_y_continuous(limits=plotrange)
+      scale_y_continuous(limits=plotrange)+
+      geom_smooth(method="loess", span=0.1)
     
   })
   
