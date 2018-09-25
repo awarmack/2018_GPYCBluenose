@@ -36,7 +36,7 @@ fromNorth <- function(bearing){
 
 expdat$twd <- fromNorth(expdat$twd)
 
-#expdat <- expdat[expdat$time > as.POSIXct("2018-09-22 15:00:00"), ]
+expdat <- expdat[expdat$time > as.POSIXct("2018-09-22 15:00:00"), ]
 
 #========
 
@@ -114,16 +114,16 @@ server <- function(input, output, session) {
                          iconAnchorX = 5, 
                          iconAnchorY = 5)
     
-    m <- leaflet() %>%  addTiles()
+    urltemp <- "https://tileservice.charts.noaa.gov/tiles/14850_1/{z}/{x}/{y}.png"    
+    
+    
+    m <- leaflet() %>% addTiles(urlTemplate = urltemp)
     #m <- m %>% addPolylines(data=df, lng=~lon, lat=~lat)
     #m <- m %>% addPolylines(data=tuna, lng=~lon, lat=~lat, color="red")
     
     expdat <- perfData()
-    
-    # pal <- colorNumeric(
-    #   palette = "Blues",
-    #   domain = quantile(expdat$bsp), c(.01,99))
-    # 
+
+
     m <- m %>% addPolylines(data=expdat, lng=~lon, lat=~lat, 
                              weight=2, opacity=100)
     m <- m %>% addMarkers(data=marks, lng=~mk.lon, lat=~mk.lat, icon = markIcon)

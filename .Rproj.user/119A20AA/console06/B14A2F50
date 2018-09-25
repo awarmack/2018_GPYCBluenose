@@ -245,3 +245,84 @@ Untracked files:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ]0;~/Dropbox/projects/sailing/2018_GPYCBlueNoseMacBook-Pro:2018_GPYCBlueNose adamwarmack$ git add -A
+]0;~/Dropbox/projects/sailing/2018_GPYCBlueNoseMacBook-Pro:2018_GPYCBlueNose adamwarmack$ git commit -m "Updated Map [K[K[K[KMarker Icon, added Sm oothed Means"
+[master c33de93] Updated Marker Icon, added Smoothed Means
+ 61 files changed, 613 insertions(+), 75 deletions(-)
+ create mode 100644 .Rproj.user/119A20AA/sources/prop/A6A722A
+ create mode 100644 .Rproj.user/119A20AA/sources/s-E7F6EEC8/FF168031
+ create mode 100644 .Rproj.user/119A20AA/sources/s-E7F6EEC8/FF168031-contents
+ rewrite .Rproj.user/shared/notebooks/F51A26C5-readme/1/119A20AAE7F6EEC8/chunks.json (88%)
+ delete mode 100644 .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/c554pyvthysbq/000003.snapshot
+ rename .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/c554pyvthysbq/{000002.csv => 000008.csv} (100%)
+ rename .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/c554pyvthysbq/{000003.metadata => 000009.metadata} (100%)
+ rename .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/c554pyvthysbq/{000003.png => 000009.png} (100%)
+ create mode 100644 .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/c554pyvthysbq/000009.snapshot
+ rename .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/c554pyvthysbq/{000004.csv => 00000a.csv} (100%)
+ delete mode 100644 .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/c7kijbt9w4h8y/000003.snapshot
+ rename .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/c7kijbt9w4h8y/{000002.csv => 000008.csv} (74%)
+ rename .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/c7kijbt9w4h8y/{000003.metadata => 000009.metadata} (100%)
+ rename .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/c7kijbt9w4h8y/{000003.png => 000009.png} (100%)
+ create mode 100644 .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/c7kijbt9w4h8y/000009.snapshot
+ rename .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/c7kijbt9w4h8y/{000004.csv => 00000a.csv} (100%)
+ create mode 100644 .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/cc986runry94z/00000a.csv
+ rename .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/{cv7tj6qnwq915/000003.metadata => cc986runry94z/00000b.metadata} (100%)
+ create mode 100644 .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/cc986runry94z/00000b.png
+ create mode 100644 .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/cc986runry94z/00000b.snapshot
+ rewrite .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/chunks.json (100%)
+ delete mode 100644 .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/cso3beq9eat3h/000003.snapshot
+ rename .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/cso3beq9eat3h/{000002.csv => 000008.csv} (100%)
+ rename .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/cso3beq9eat3h/{000003.metadata => 000009.metadata} (100%)
+ rename .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/cso3beq9eat3h/{000003.png => 000009.png} (100%)
+ create mode 100644 .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/cso3beq9eat3h/000009.snapshot
+ delete mode 100644 .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/cv7tj6qnwq915/000003.snapshot
+ delete mode 100644 .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/cv7tj6qnwq915/000005.snapshot
+ rename .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/cv7tj6qnwq915/{000002.csv => 00000e.csv} (100%)
+ rename .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/cv7tj6qnwq915/{000005.metadata => 00000f.metadata} (100%)
+ rename .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/cv7tj6qnwq915/{000003.png => 00000f.png} (100%)
+ create mode 100644 .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/cv7tj6qnwq915/00000f.snapshot
+ rename .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/cv7tj6qnwq915/{000004.csv => 000010.csv} (100%)
+ create mode 100644 .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/cv7tj6qnwq915/000011.metadata
+ rename .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/cv7tj6qnwq915/{000005.png => 000011.png} (100%)
+ create mode 100644 .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/cv7tj6qnwq915/000011.snapshot
+ create mode 100644 .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/cvvg9usivxrpx/000004.csv
+ delete mode 100644 .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/czhljt3qotuag/000003.snapshot
+ rename .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/czhljt3qotuag/{000002.csv => 000008.csv} (100%)
+ rename .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/czhljt3qotuag/{000003.metadata => 000009.metadata} (100%)
+ rename .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/czhljt3qotuag/{000003.png => 000009.png} (100%)
+ create mode 100644 .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/czhljt3qotuag/000009.snapshot
+ rename .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/czhljt3qotuag/{000004.csv => 00000a.csv} (100%)
+ create mode 100644 shinyapp/mark.rda
+ create mode 100644 shinyapp/triangle.svg
+]0;~/Dropbox/projects/sailing/2018_GPYCBlueNoseMacBook-Pro:2018_GPYCBlueNose adamwarmack$ git push
+Counting objects: 58, done.
+Delta compression using up to 8 threads.
+Compressing objects:   2% (1/50)   Compressing objects:   4% (2/50)   Compressing objects:   6% (3/50)   Compressing objects:   8% (4/50)   Compressing objects:  10% (5/50)   Compressing objects:  12% (6/50)   Compressing objects:  14% (7/50)   Compressing objects:  16% (8/50)   Compressing objects:  18% (9/50)   Compressing objects:  20% (10/50)   Compressing objects:  22% (11/50)   Compressing objects:  24% (12/50)   Compressing objects:  26% (13/50)   Compressing objects:  28% (14/50)   Compressing objects:  30% (15/50)   Compressing objects:  32% (16/50)   Compressing objects:  34% (17/50)   Compressing objects:  36% (18/50)   Compressing objects:  38% (19/50)   Compressing objects:  40% (20/50)   Compressing objects:  42% (21/50)   Compressing objects:  44% (22/50)   Compressing objects:  46% (23/50)   Compressing objects:  48% (24/50)   Compressing objects:  50% (25/50)   Compressing objects:  52% (26/50)   Compressing objects:  54% (27/50)   Compressing objects:  56% (28/50)   Compressing objects:  58% (29/50)   Compressing objects:  60% (30/50)   Compressing objects:  62% (31/50)   Compressing objects:  64% (32/50)   Compressing objects:  66% (33/50)   Compressing objects:  68% (34/50)   Compressing objects:  70% (35/50)   Compressing objects:  72% (36/50)   Compressing objects:  74% (37/50)   Compressing objects:  76% (38/50)   Compressing objects:  78% (39/50)   Compressing objects:  80% (40/50)   Compressing objects:  82% (41/50)   Compressing objects:  84% (42/50)   Compressing objects:  86% (43/50)   Compressing objects:  88% (44/50)   Compressing objects:  90% (45/50)   Compressing objects:  92% (46/50)   Compressing objects:  94% (47/50)   Compressing objects:  96% (48/50)   Compressing objects:  98% (49/50)   Compressing objects: 100% (50/50)   Compressing objects: 100% (50/50), done.
+Writing objects:   1% (1/58)   Writing objects:   3% (2/58)   Writing objects:   5% (3/58)   Writing objects:   6% (4/58)   Writing objects:   8% (5/58)   Writing objects:  10% (6/58)   Writing objects:  12% (7/58)   Writing objects:  13% (8/58)   Writing objects:  15% (9/58)   Writing objects:  17% (10/58)   Writing objects:  18% (11/58)   Writing objects:  20% (12/58)   Writing objects:  22% (13/58)   Writing objects:  24% (14/58)   Writing objects:  25% (15/58)   Writing objects:  27% (16/58)   Writing objects:  29% (17/58)   Writing objects:  31% (18/58)   Writing objects:  32% (19/58)   Writing objects:  34% (20/58)   Writing objects:  36% (21/58)   Writing objects:  37% (22/58)   Writing objects:  39% (23/58)   Writing objects:  41% (24/58)   Writing objects:  43% (25/58)   Writing objects:  44% (26/58)   Writing objects:  46% (27/58)   Writing objects:  48% (28/58)   Writing objects:  50% (29/58)   Writing objects:  51% (30/58)   Writing objects:  53% (31/58)   Writing objects:  55% (32/58)   Writing objects:  56% (33/58)   Writing objects:  58% (34/58)   Writing objects:  60% (35/58)   Writing objects:  62% (36/58)   Writing objects:  63% (37/58)   Writing objects:  65% (38/58)   Writing objects:  67% (39/58)   Writing objects:  68% (40/58)   Writing objects:  70% (41/58)   Writing objects:  72% (42/58)   Writing objects:  74% (43/58)   Writing objects:  75% (44/58)   Writing objects:  75% (44/58), 1.07 MiB | 702.00 KiB/s   Writing objects:  77% (45/58), 1.07 MiB | 702.00 KiB/s   Writing objects:  79% (46/58), 1.07 MiB | 702.00 KiB/s   Writing objects:  81% (47/58), 1.07 MiB | 702.00 KiB/s   Writing objects:  82% (48/58), 1.07 MiB | 702.00 KiB/s   Writing objects:  84% (49/58), 1.07 MiB | 702.00 KiB/s   Writing objects:  86% (50/58), 1.07 MiB | 702.00 KiB/s   Writing objects:  87% (51/58), 1.07 MiB | 702.00 KiB/s   Writing objects:  87% (51/58), 2.02 MiB | 864.00 KiB/s   Writing objects:  89% (52/58), 2.02 MiB | 864.00 KiB/s   Writing objects:  91% (53/58), 2.02 MiB | 864.00 KiB/s   Writing objects:  93% (54/58), 2.02 MiB | 864.00 KiB/s   Writing objects:  94% (55/58), 2.02 MiB | 864.00 KiB/s   Writing objects:  96% (56/58), 2.02 MiB | 864.00 KiB/s   Writing objects:  98% (57/58), 2.02 MiB | 864.00 KiB/s   Writing objects: 100% (58/58), 2.02 MiB | 864.00 KiB/s   Writing objects: 100% (58/58), 2.09 MiB | 878.00 KiB/s, done.
+Total 58 (delta 13), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/13)   [Kremote: Resolving deltas:   7% (1/13)   [Kremote: Resolving deltas:  15% (2/13)   [Kremote: Resolving deltas:  23% (3/13)   [Kremote: Resolving deltas:  30% (4/13)   [Kremote: Resolving deltas:  38% (5/13)   [Kremote: Resolving deltas:  53% (7/13)   [Kremote: Resolving deltas:  61% (8/13)   [Kremote: Resolving deltas:  69% (9/13)   [Kremote: Resolving deltas:  76% (10/13)   [Kremote: Resolving deltas:  84% (11/13)   [Kremote: Resolving deltas:  92% (12/13)   [Kremote: Resolving deltas: 100% (13/13)   [Kremote: Resolving deltas: 100% (13/13), completed with 12 local objects.[K
+To https://github.com/awarmack/2018_GPYCBluenose.git
+   745882f..c33de93  master -> master
+]0;~/Dropbox/projects/sailing/2018_GPYCBlueNoseMacBook-Pro:2018_GPYCBlueNose adamwarmack$ [KMacBook-Pro:2018_GPYCBlueNose adamwarmack$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	[31mmodified:   .Rproj.user/119A20AA/console06/B14A2F50[m
+	[31mmodified:   .Rproj.user/119A20AA/console06/INDEX001[m
+	[31mmodified:   .Rproj.user/119A20AA/sources/prop/759E3A5F[m
+	[31mmodified:   .Rproj.user/119A20AA/sources/prop/B0B98382[m
+	[31mmodified:   .Rproj.user/119A20AA/sources/s-E7F6EEC8/7CFFE0D2[m
+	[31mmodified:   .Rproj.user/119A20AA/sources/s-E7F6EEC8/7CFFE0D2-contents[m
+	[31mmodified:   .Rproj.user/119A20AA/sources/s-E7F6EEC8/FF81B231[m
+	[31mmodified:   .Rproj.user/119A20AA/sources/s-E7F6EEC8/FF81B231-contents[m
+	[31mmodified:   .Rproj.user/shared/notebooks/F51A26C5-readme/1/119A20AAE7F6EEC8/chunks.json[m
+	[31mmodified:   .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/chunks.json[m
+	[31mmodified:   .Rproj.user/shared/notebooks/F51A26C5-readme/1/s/cvvg9usivxrpx/000004.csv[m
+	[31mmodified:   docs/readme.Rmd[m
+	[31mmodified:   shinyapp/app.R[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;~/Dropbox/projects/sailing/2018_GPYCBlueNoseMacBook-Pro:2018_GPYCBlueNose adamwarmack$ git comm[K[K[K[Kadd -A

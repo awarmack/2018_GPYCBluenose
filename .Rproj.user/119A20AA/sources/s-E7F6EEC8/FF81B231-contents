@@ -174,7 +174,12 @@ markIcon <- makeIcon(iconUrl = "../shinyapp/triangle.svg",
                      iconAnchorX = 5, 
                      iconAnchorY = 5)
 
-    m <- leaflet() %>%  addTiles()
+wmsBase <- "http://tileservice.charts.noaa.gov/tiles/wmts"
+wmsLayers <- c("14850_1")
+
+urltemp <- "https://tileservice.charts.noaa.gov/tiles/14850_1/{z}/{x}/{y}.png"
+
+    m <- leaflet() %>%  addTiles(urlTemplate = urltemp)
     
     m <- m %>% addPolylines(data=expdat, lng=~lon, lat=~lat, 
                              weight=2, opacity=100)
