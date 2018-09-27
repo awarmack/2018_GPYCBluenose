@@ -30,7 +30,7 @@ fromNorth <- function(bearing){
   bearing <- normbear(bearing)  #first convert to a normal bearing
   
   fromNorth <- ifelse(bearing > 180, bearing-360, bearing)
-  fromNorth <- ifelse(fromNorth < -180, 360+fromNorth, fromNorth)
+  fromNorth <- ifelse(fromNorth < -180, 360+fromNorth, fromNorth)git 
   return(fromNorth)
 }
 
